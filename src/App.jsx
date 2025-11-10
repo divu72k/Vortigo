@@ -38,37 +38,42 @@ export default function VortigoBlog() {
   }, []);
 
   const featuredPosts = [
-    {
-      title: "The Future of Web Development in 2025",
-      excerpt: "Exploring the latest trends, tools, and technologies shaping the future of how we build for the web.",
-      category: "Technology",
-      readTime: "8 min read",
-      image: "🚀"
-    },
-    {
-      title: "Mastering the Art of Storytelling",
-      excerpt: "Learn how to captivate your audience with compelling narratives that resonate and inspire action.",
-      category: "Writing",
-      readTime: "6 min read",
-      image: "✨"
-    },
-    {
-      title: "Building a Personal Brand That Matters",
-      excerpt: "Authentic strategies for creating a personal brand that stands out in a crowded digital landscape.",
-      category: "Career",
-      readTime: "10 min read",
-      image: "🎯"
-    }
-  ];
+  {
+    title: "How Malware Works: A Deep Dive",
+    excerpt: "A beginner-friendly breakdown of malware types, behavior, and analysis techniques.",
+    category: "Malware Analysis",
+    readTime: "7 min read",
+    image: "🦠",
+    link: "https://blog.malwarebytes.com/malware/2020/01/how-malware-works/"
+  },
+  {
+    title: "Introduction to Network Security",
+    excerpt: "Understanding firewalls, IDS/IPS, network segmentation and attacker techniques.",
+    category: "Network Security",
+    readTime: "9 min read",
+    image: "🌐",
+    link: "https://www.imperva.com/learn/application-security/network-security/"
+  },
+  {
+    title: "Beginner’s Guide to Blockchain Security",
+    excerpt: "How blockchain ensures trust, immutability, and cryptographic security.",
+    category: "Blockchain Security",
+    readTime: "8 min read",
+    image: "⛓️",
+    link: "https://consensys.io/blog/blockchain-explained/how-does-blockchain-security-work"
+  }
+];
 
   const categories = [
-    { name: "Technology", icon: "💻", count: 127 },
-    { name: "Design", icon: "🎨", count: 89 },
-    { name: "Business", icon: "📊", count: 156 },
-    { name: "Lifestyle", icon: "🌟", count: 203 },
-    { name: "Travel", icon: "✈️", count: 94 },
-    { name: "Food", icon: "🍜", count: 78 }
-  ];
+  { name: "Network Security", icon: "🌐", count: 120 },
+  { name: "Malware Analysis", icon: "🦠", count: 95 },
+  { name: "Digital Forensics", icon: "🔍", count: 88 },
+  { name: "Vulnerability Assessment", icon: "🧭", count: 102 },
+  { name: "Security Auditing", icon: "📋", count: 76 },
+  { name: "Penetration Testing", icon: "🛠️", count: 141 },
+  { name: "Blockchain Security", icon: "⛓️", count: 67 },
+  { name: "Smart Contract Review", icon: "📜", count: 54 }
+];
 
   if (loading) {
     return (
@@ -84,7 +89,7 @@ export default function VortigoBlog() {
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-wider animate-fade-in">
             <span className="bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
-              Vortigo
+              Vortigo Solutions
             </span>
           </h1>
           <div className="space-y-4 animate-fade-in-delay">
@@ -130,7 +135,7 @@ export default function VortigoBlog() {
           <div className="flex items-center gap-3 animate-fade-in">
             <BookOpen className="w-8 h-8 text-yellow-500 transition-transform duration-300 hover:rotate-12" />
             <span className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-              Vortigo
+              Vortigo Solutions
             </span>
           </div>
 
@@ -222,14 +227,17 @@ export default function VortigoBlog() {
                 Featured Stories
               </span>
             </h2>
-            <p className="text-gray-400 text-lg animate-fade-in-up" style={{ animationDelay: '0.1s' }}>Handpicked articles from our latest collection</p>
+            <p className="text-gray-400 text-lg animate-fade-in-up" style={{ animationDelay: '0.1s' }}>Illustrations from our latest collection</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {featuredPosts.map((post, idx) => (
-              <div
+              <a
                 key={idx}
-                className="group bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-yellow-500/20 transition-all duration-700 ease-out hover:-translate-y-2 cursor-pointer border border-yellow-900/30 hover:border-yellow-500/50 animate-fade-in-up"
-                style={{ animationDelay: `${idx * 0.1}s` }}
+                href={post.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-yellow-500/20 transition-all duration-700 ease-out hover:-translate-y-2 cursor-pointer border border-yellow-900/30 hover:border-yellow-500/50 animate-fade-in-up block no-underline"
+                style={{ animationDelay: `${idx * 0.1}s`, textDecoration: 'none' }}
               >
                 <div className="h-48 bg-gradient-to-br from-yellow-600 to-orange-600 flex items-center justify-center text-7xl transition-transform duration-700 group-hover:scale-110">
                   {post.image}
@@ -250,7 +258,7 @@ export default function VortigoBlog() {
                     <span className="transition-all duration-300 group-hover:translate-x-2 group-hover:scale-125">→</span>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
