@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, PenTool, Users, Sparkles, TrendingUp, MessageCircle, Search, Menu, X } from 'lucide-react';
+import About from './pages/about';
 
 export default function VortigoBlog() {
   const [loading, setLoading] = useState(true);
@@ -292,6 +293,8 @@ export default function VortigoBlog() {
           </div>
         </div>
       </section>
+
+      <About />
 
       {/* Why Subscribe Section */}
       <section className="relative py-20 px-6">
